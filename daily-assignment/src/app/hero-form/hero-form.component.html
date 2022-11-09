@@ -19,14 +19,14 @@
     </div>
   </div>
   <div class="mb-3">
-    <label for="alterego" class="form-label">Alter Ego</label>
+    <label for="alterEgo" class="form-label">Alter Ego</label>
     <input
       name="alterEgo"
       ngModel
       #alterEgo="ngModel"
       type="text"
       class="form-control"
-      id="alterego"
+      id="alterEgo"
       required
     />
     <div
@@ -86,7 +86,7 @@
       class="form-control"
       id="planet"
       required
-      min="5"
+      minlength="5"
     />
     <div
       *ngIf="planet.invalid && planet.touched"

@@ -1,27 +1,70 @@
-<form>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="mb-3">
     <label for="name" class="form-label">Name</label>
-    <input type="text" class="form-control" id="name" required />
+    <input
+      type="text"
+      formControlName="name"
+      class="form-control"
+      id="name"
+      required
+    />
+    <div
+      class="alert alert-danger"
+      role="alert"
+      *ngIf="getFormControl('name')?.invalid && this.form.get('name')?.touched"
+    >
+      <!--DUE METODI UGUALI-->
+      WOFFOLOOOOOOOOOOO
+    </div>
   </div>
   <div class="mb-3">
-    <label for="alterego" class="form-label">Alter Ego</label>
-    <input type="text" class="form-control" id="alterego" required />
+    <label for="alterEgo" class="form-label">Alter Ego</label>
+    <input
+      type="text"
+      formControlName="alterEgo"
+      class="form-control"
+      id="alterEgo"
+      required
+    />
   </div>
   <div class="mb-3">
     <label for="power" class="form-label">Power</label>
-    <input type="text" class="form-control" id="power" required />
+    <select class="form-select form-control" formControlName="power" id="power">
+      <option selected>Open this select menu</option>
+      <option *ngFor="let power of powers" [value]="power">{{ power }}</option>
+    </select>
   </div>
   <div class="mb-3">
     <label for="enemy" class="form-label">Enemy</label>
-    <input type="text" class="form-control" id="enemy" maxlength="10" />
+    <input
+      type="text"
+      class="form-control"
+      formControlName="enemy"
+      id="enemy"
+      maxlength="10"
+    />
   </div>
   <div class="mb-3">
     <label for="planet" class="form-label">Planet</label>
-    <input type="text" class="form-control" id="planet" required min="5" />
+    <input
+      type="text"
+      class="form-control"
+      formControlName="planet"
+      id="planet"
+      required
+      min="5"
+    />
   </div>
   <div class="mb-3">
     <label for="weakness" class="form-label">Weakness</label>
-    <input type="text" class="form-control" id="weakness" />
+    <input
+      type="text"
+      class="form-control"
+      formControlName="weakness"
+      id="weakness"
+    />
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" [disabled]="form.invalid" class="btn btn-primary">
+    Submit
+  </button>
 </form>

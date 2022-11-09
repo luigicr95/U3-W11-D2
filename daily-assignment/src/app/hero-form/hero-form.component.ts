@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -7,11 +7,15 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./hero-form.component.css'],
 })
 export class HeroFormComponent implements OnInit {
+  //@ViewChild("f") mioForm!: NgForm altro metodo
+  powers = ['Forte', 'Fortissimo', 'Ricco'];
+
   constructor() {}
 
   ngOnInit(): void {}
 
   onSubmit(form: NgForm): void {
-    console.log(form.value);
+    // console.log(this.mioForm.value)
+    console.log(form);
   }
 }
